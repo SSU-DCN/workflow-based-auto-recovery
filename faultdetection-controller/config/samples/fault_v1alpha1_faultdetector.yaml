@@ -1,0 +1,12 @@
+apiVersion: fault.workflow.dcn.ssu.ac.kr/v1alpha1
+kind: FaultDetector
+metadata:
+  labels:
+    app.kubernetes.io/name: faultdetector
+    app.kubernetes.io/instance: faultdetector-sample
+    app.kubernetes.io/part-of: faultdetection-controller
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: faultdetection-controller
+  name: faultdetector-sample
+spec:
+  # TODO(user): Add fields here

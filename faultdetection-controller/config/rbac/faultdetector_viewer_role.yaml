@@ -1,0 +1,27 @@
+# permissions for end users to view faultdetectors.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: faultdetector-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: faultdetection-controller
+    app.kubernetes.io/part-of: faultdetection-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: faultdetector-viewer-role
+rules:
+- apiGroups:
+  - fault.workflow.dcn.ssu.ac.kr
+  resources:
+  - faultdetectors
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - fault.workflow.dcn.ssu.ac.kr
+  resources:
+  - faultdetectors/status
+  verbs:
+  - get

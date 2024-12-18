@@ -1,4 +1,4 @@
-module github.com/SSU-DCN/workflow-based-auto-recovery/faultdetection-operator
+module github.com/SSU-DCN/workflow-based-auto-recovery/faultdetection-controller
 
 go 1.20
 

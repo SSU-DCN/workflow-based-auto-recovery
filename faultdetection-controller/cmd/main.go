@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	faultv1alpha1 "github.com/SSU-DCN/workflow-based-auto-recovery/faultdetection-operator/api/v1alpha1"
-	"github.com/SSU-DCN/workflow-based-auto-recovery/faultdetection-operator/internal/controller"
+	faultv1alpha1 "github.com/SSU-DCN/workflow-based-auto-recovery/faultdetection-controller/api/v1alpha1"
+	"github.com/SSU-DCN/workflow-based-auto-recovery/faultdetection-controller/internal/controller"
 	//+kubebuilder:scaffold:imports
 )
 

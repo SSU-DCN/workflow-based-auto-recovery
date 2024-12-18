@@ -5,7 +5,7 @@ import (
     "time"
 
     "github.com/go-logr/logr"
-    examplev1alpha1 "github.com/example/faultdetection-operator/api/v1alpha1"
+    examplev1alpha1  "github.com/SSU-DCN/workflow-based-auto-recovery/faultdetection-controller/api/v1alpha1"
     metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
     "sigs.k8s.io/controller-runtime/pkg/client"
     ctrl "sigs.k8s.io/controller-runtime"

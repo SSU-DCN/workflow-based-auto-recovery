@@ -9,7 +9,7 @@ type FaultDetectionSpec struct {
     ClusterName string            `json:"clusterName,omitempty"` // Target cluster
     Method      string            `json:"method,omitempty"`      // Detection method: rule-based or ml-based
     Metrics     []string          `json:"metrics,omitempty"`     // List of metrics to monitor
-    Thresholds  map[string]float64 `json:"thresholds,omitempty"` // Threshold values for metrics
+    Thresholds  map[string]string `json:"thresholds,omitempty"` // Threshold values for metrics
 }
 
 // FaultDetectionStatus defines the observed state of FaultDetection

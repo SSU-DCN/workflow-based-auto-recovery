@@ -94,7 +94,7 @@ func (in *FaultDetectionSpec) DeepCopyInto(out *FaultDetectionSpec) {
 	}
 	if in.Thresholds != nil {
 		in, out := &in.Thresholds, &out.Thresholds
-		*out = make(map[string]float64, len(*in))
+		*out = make(map[string]string, len(*in))
 		for key, val := range *in {
 			(*out)[key] = val
 		}

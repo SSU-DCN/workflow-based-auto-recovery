@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: node-recovery-template
+  namespace: default
+spec:
+  entrypoint: main
+  templates:
+  - name: main
+    steps:
+    - - name: echo
+        template: echo
+  - name: echo
+    container:
+      image: alpine
+      command: [echo]
+      args: ["Node recovery action executed"]

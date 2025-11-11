@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- recovery_v1alpha1_recoverytrigger.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

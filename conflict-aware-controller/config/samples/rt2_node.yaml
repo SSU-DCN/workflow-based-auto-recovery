@@ -1,0 +1,11 @@
+apiVersion: recovery.io/v1alpha1
+kind: RecoveryTrigger
+metadata:
+  name: node-recovery-trigger-2
+  namespace: default
+spec:
+  failureType: NodeFailure
+  workflowTemplate: node-recovery-template
+  targetObjects:
+    - kind: Node
+      name: worker-1   # same node as rt1 → conflict

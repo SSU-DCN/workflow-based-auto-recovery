@@ -1,0 +1,9 @@
+apiVersion: recovery.workflow-recovery.io/v1alpha1
+kind: RecoveryTrigger
+metadata:
+  labels:
+    app.kubernetes.io/name: conflict-aware-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: recoverytrigger-sample
+spec:
+  # TODO(user): Add fields here

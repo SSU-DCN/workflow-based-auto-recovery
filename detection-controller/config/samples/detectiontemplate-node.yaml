@@ -1,0 +1,12 @@
+apiVersion: detect.failure-recovery.io/v1alpha1
+kind: DetectionTemplate
+metadata:
+  name: node-ready-template
+spec:
+  scope: Node
+  apiVersion: v1
+  kind: Node
+  fieldPath: "status.conditions[Ready].status"
+  expected: "True"
+  interval: 15s   # re-check every 30 seconds
+

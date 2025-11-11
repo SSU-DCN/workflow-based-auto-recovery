@@ -1,4 +1,0 @@
-## Append samples of your project ##
-resources:
-- fault_v1alpha1_faultdetector.yaml
-#+kubebuilder:scaffold:manifestskustomizesamples

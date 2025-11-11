@@ -1,0 +1,57 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - detect.failure-recovery.io
+  resources:
+  - detectiontemplates
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - detect.failure-recovery.io
+  resources:
+  - detectiontemplates/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - detect.failure-recovery.io
+  resources:
+  - detectiontemplates/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - detect.failure-recovery.io
+  resources:
+  - faultdetections
+  verbs:
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - detect.failure-recovery.io
+  resources:
+  - faultdetections/status
+  verbs:
+  - patch
+  - update

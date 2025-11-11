@@ -1,0 +1,9 @@
+apiVersion: detect.failure-recovery.io/v1alpha1
+kind: DetectionTemplate
+metadata:
+  labels:
+    app.kubernetes.io/name: detection-controller
+    app.kubernetes.io/managed-by: kustomize
+  name: detectiontemplate-sample
+spec:
+  # TODO(user): Add fields here

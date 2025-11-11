@@ -1,0 +1,118 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.18.0
+  name: detectiontemplates.detect.failure-recovery.io
+spec:
+  group: detect.failure-recovery.io
+  names:
+    kind: DetectionTemplate
+    listKind: DetectionTemplateList
+    plural: detectiontemplates
+    singular: detectiontemplate
+  scope: Cluster
+  versions:
+  - name: v1alpha1
+    schema:
+      openAPIV3Schema:
+        properties:
+          apiVersion:
+            description: |-
+              APIVersion defines the versioned schema of this representation of an object.
+              Servers should convert recognized schemas to the latest internal value, and
+              may reject unrecognized values.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            type: string
+          kind:
+            description: |-
+              Kind is a string value representing the REST resource this object represents.
+              Servers may infer this from the endpoint the client submits requests to.
+              Cannot be updated.
+              In CamelCase.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: DetectionTemplateSpec defines reusable config for detection
+              agents.
+            properties:
+              apiVersion:
+                description: |-
+                  === Option B: API-based detection ===
+                  K8s resource to watch (e.g., core/v1/nodes, apps/v1/deployments)
+                type: string
+              expected:
+                description: Expected value (e.g., "True" for Node Ready, "Running"
+                  for Pod)
+                type: string
+              fieldPath:
+                description: FieldPath inside the resource status to evaluate (dot
+                  notation)
+                type: string
+              interval:
+                description: Interval for metric collection
+                type: string
+              kind:
+                type: string
+              ml:
+                description: Optional ML model config
+                properties:
+                  endpoint:
+                    description: Endpoint (if model already deployed)
+                    type: string
+                  image:
+                    description: Optional container image for model serving
+                    type: string
+                  modelName:
+                    description: Model name or identifier in the model store
+                    type: string
+                required:
+                - modelName
+                type: object
+              prometheusAPI:
+                description: '=== Option A: Prometheus-based detection ==='
+                type: string
+              queries:
+                items:
+                  description: QuerySpec defines one metric query.
+                  properties:
+                    metric:
+                      description: Name of the metric (for status report)
+                      type: string
+                    query:
+                      description: PromQL or API query string
+                      type: string
+                  required:
+                  - metric
+                  - query
+                  type: object
+                type: array
+              rule:
+                description: Rule expression (optional, can combine multiple)
+                type: string
+              scope:
+                description: Scope of monitoring (Pod, Node, Cluster)
+                type: string
+              triggerAPI:
+                description: API endpoint to trigger if anomaly detected
+                type: string
+            required:
+            - interval
+            - scope
+            type: object
+          status:
+            description: DetectionTemplateStatus provides registry info.
+            properties:
+              message:
+                type: string
+              valid:
+                type: boolean
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

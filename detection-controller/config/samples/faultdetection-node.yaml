@@ -1,0 +1,9 @@
+apiVersion: detect.failure-recovery.io/v1alpha1
+kind: FaultDetection
+metadata:
+  name: cluster-node-check
+  namespace: default
+spec:
+  templateRef: node-ready-template   # Reference to DetectionTemplate
+  target: {}                         # empty = check all nodes
+
